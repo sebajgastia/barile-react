@@ -17,6 +17,7 @@ function NavBar() {
             <div className='carro'>
             <CartWidget />
             </div>
+            <p className='point'>1</p>
           </Container>
         </Navbar>
       </div>

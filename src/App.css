@@ -11,7 +11,7 @@ nav{
 }
 
 .carro{
-  color: azure;
+  color: aliceblue;
   font-size: 25px;
   margin: 0;
   padding: 0;
@@ -34,3 +34,9 @@ color:beige;
 font-family:'Times New Roman', Times, serif;
 font-size: 20PX;
 }
+
+.point{
+  color: white;
+
+}
+
