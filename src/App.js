@@ -1,17 +1,34 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './componentes/NavBar';
-import ItemListContainer from './componentes/ItemListContaine';
+import {BrowserRouter, Routes, Route } from 'react-router-dom'
+import Inicio from './componentes/pages/Inicio';
+import Productos from './componentes/pages/Productos';
+import Ubicacion from './componentes/pages/Ubicacion';
+import ItemDetailContainer from './componentes/main/ItemDetailContainer';
+import ItemListContainer from './componentes/main/ItemListContainer';
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+      
+        <BrowserRouter>
         <NavBar />
-        <ItemListContainer greeting='Bienvenidos a FABRICA DE HELADOS BARILE' />
-        
+        <Routes>
+          <Route path='/Inicio' element= {<Inicio />}/>
+          <Route path='/Productos' element= {<Productos />}/>
+          <Route path='/' element= {<ItemListContainer />}/>
+          <Route path='/category/:categoryName' element= {<ItemListContainer />}/>
+          <Route path='/item/:id' element= {<ItemDetailContainer/>}/>
+          <Route path='/Ubicacion' element= {<Ubicacion />}/>
+        </Routes>
+        </BrowserRouter>
       </header>
     </div>
   );
 }
+
 
 export default App;
