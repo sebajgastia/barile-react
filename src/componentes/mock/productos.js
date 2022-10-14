@@ -32,9 +32,9 @@ export const productos = [
         description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
         price: 200,
         stock: 10,
-        category: 'helados',
+        category: 'paletas',
         img: 'https://cloudfront-us-east-1.images.arcpublishing.com/elespectador/DVBM3FZDRBAD7EDD4NQMEWKK3A.jpg',
     },
 
-
+    
 ];

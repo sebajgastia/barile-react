@@ -7,12 +7,12 @@ import { useParams } from "react-router-dom";
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
 
-  const { Number } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     const traerProducto = () => {
       return new Promise((res, rej) => {
-        const producto = productos.find((prod) => prod.Number === Number);
+        const producto = productos.find((prod) => prod.id === Number(id));
 
         setTimeout(() => {
           res(producto);
@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [Number]);
+  }, [id]);
 
   console.log(item);
 
