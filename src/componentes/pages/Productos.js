@@ -1,11 +1,11 @@
 import React from "react";
-
+import ItemListContainer from '../main/ItemListContainer'
 
 
 
 const productos = () => {
     return(
-    <div></div>
+    <div><ItemListContainer/></div>
         
     );
 };

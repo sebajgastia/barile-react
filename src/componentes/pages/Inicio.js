@@ -1,11 +1,11 @@
 import React from "react";
-import ItemListContainer from '../main/ItemListContainer'
+
 
 
 const inicio = () => {
     return(
     <div>
-        <ItemListContainer/>
+        INICIO DE APP
     </div>
 
     )

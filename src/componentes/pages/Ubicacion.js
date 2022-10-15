@@ -2,7 +2,7 @@ import React from "react";
 
 const ubicacion = () => {
     return(
-    <div></div>
+    <div> UBICACION DE LA APP</div>
     )
 }
 
