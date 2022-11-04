@@ -1,33 +1,49 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList"; 
-import { productos } from "../mock/productos";
-import { useParams } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner';
+import { collection, getDocs } from "firebase/firestore";
+import {database} from "../../servicios/Firebaseinit";
+
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
 
-  const { categoryName } = useParams();
+  const [Carga, setLoading] = useState(true);
+
 
   useEffect(() => {
-    const traerProductos = () => {
-      return new Promise((res, rej) => {
-        const prodFiltrados = productos.filter(
-          (prod) => prod.category === categoryName
-        );
-        const prod = categoryName ? prodFiltrados : productos;
-        setTimeout(() => {
-          res(prod); 
-        }, 300);
-      });
-    };
-    traerProductos()
-      .then((res) => {
-        setItems(res);
+      const contenidoProductos = collection(database, 'productos barile')
+
+      getDocs(contenidoProductos)
+      .then((res)=> {
+        const products = res.docs.map((prod)=>{
+            return{
+              id:prod.id,
+              ...prod.data(),
+            }
+            
+        })
+          setItems(products);
+          setLoading(false)
       })
-      .catch((error) => {
+
+      .catch((error)=>{
         console.log(error);
       });
-  }, [categoryName]);
+
+  
+      return () => setLoading(true);
+
+  }, []);
+
+
+  if (Carga) {
+    return (
+        <div className="spinner">
+            <Spinner animation="border" role="status"></Spinner>
+        </div>
+    );
+}
 
   return (
     <div className='container-fluid'>
@@ -37,3 +53,5 @@ const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
+
+

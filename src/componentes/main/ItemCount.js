@@ -2,29 +2,26 @@ import React, {useState} from "react";
 import './ItemCount.css'
 
 
-const ItemCount = ({ stock, initial }) => {
-    const [count, setCount] = useState(initial);
+const ItemCount = ( props ) => {
+    const [count, setCount] = useState(props.initial);
 
     const sumar = () => {
-        if (count < stock) {
-            setCount(count + 1);
-        }
+        count < props.stock && setCount(count + 1);
     };
 
     const restar = () => {
-        if (count > initial) {
-            setCount(count - 1);
-        }
+      count > props.initial &&  setCount(count - 1);
     };
 
     return (
         <div className="container-count">
             <div className="count-btn">
-                <button onClick={sumar}>+</button>
-                <p>{count}</p>
                 <button onClick={restar}>-</button>
+                <p>{count}</p>
+                <button onClick={sumar}>+</button>
             </div>
-            <button className="add-btn">Agregar al carro</button>
+            <button onClick={() => props.check(count)}
+            className="add-btn">Agregar al carro</button>
         </div>
     );
 };

@@ -2,10 +2,15 @@ import CartWidget from './CartWidget';
 import {Navbar,Container,Nav, NavbarBrand} from 'react-bootstrap'
 import '../App.css'
 import {Link} from 'react-router-dom'
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 
 
-function NavBar() {
+const NavBar = () => {
+  
+  const {CantidadProductos} = useContext(CartContext)
+  
     return (
       <div>
         <Navbar className='nav' bg="dark" variant="dark">
@@ -18,13 +23,18 @@ function NavBar() {
               <Link className='ubi-env' to='/Ubicacion'>Ubicacion&Envios</Link>
             </Nav>
             <div className='carro'>
+    
             <CartWidget />
             </div>
-            <p className='point'>0</p>
+            <span className='point'> {CantidadProductos()} </span>
+            
           </Container>
         </Navbar>
       </div>
     );
   }
+
+  
+
 export default NavBar
 
