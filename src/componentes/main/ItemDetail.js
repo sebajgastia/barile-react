@@ -18,7 +18,7 @@ const {agregarAlChango} = useContext(CartContext)
 const check = (num) =>{
     setUnidades (num)
     agregarAlChango (item, num)
-    swal(`Agregaste ${item.title} unidades`);
+    swal(`Agregaste!! ${item.title} al carrito! `);
 };
 
     return(
