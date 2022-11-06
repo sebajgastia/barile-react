@@ -175,3 +175,17 @@ text-decoration: none;
   font-size: 60px;
 }
 
+.col-form-label{
+  box-sizing: border-box;
+  width: 700px;
+  height: 100px;
+  justify-content:space-between;
+  
+}
+
+.form-content{
+  display: flex;
+  min-Height:70vh;
+  justify-Content:center;
+  align-Items:center ;
+}

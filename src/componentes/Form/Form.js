@@ -3,7 +3,8 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useContext, useState, } from "react";
 import { CartContext } from "../../context/CartContext";
 import {database} from "../../servicios/Firebaseinit";
-import { Spinner } from "react-bootstrap";
+import {Spinner } from "react-bootstrap";
+
 
 
 
@@ -77,18 +78,25 @@ const Form = () =>{
 
     if(NumeroSeguimiento){
         return(
+            
             <p className="Seguimiento">Gracias por confiar! tu numero de seguimiento es, <h1 className="Seguimiento2">{NumeroSeguimiento}</h1>, no te lo olvides!</p>
+            
         )
+        
     }
 
+
+
     return(
-        <div style={{minHeight:"70vh", display:"flex", justifyContent:"center", alignItems:"center"  }}>
+        <div className="form-content">
             <form onSubmit={handleSubmit}  action="">
                 <input type="text" name="nombre" placeholder="Nombre?" onChange={handleChangeName} value={name}required/>
                 <input type="text" name="apellido" placeholder="Apellido?" onChange={handleChangeLastName} value={lastName} required/>
-                <input type="email"name="email" placeholder="E-mail?" onChange={handleChangeEmail} value={email} required/>
-                <input type="telefono"name="phone" placeholder="Telefono??" onChange={handleChangeTelefono} value={telefono} required/>
-                <input type="textarea"name="text" placeholder="Ingrese texto con su sabor de helado y/O postre" onChange={handleChangeText} value={text} required/>
+                <input type="email"name="email" placeholder="E-mail?" onChange={handleChangeEmail} value={email} required />
+                <input type="text"name="phone" placeholder="Telefono??" onChange={handleChangeTelefono} value={telefono} required/>
+                <div>
+                <input className="col-form-label" type="textarea"name="text" placeholder="Ingrese texto con su sabor de helado y/O postre" onChange={handleChangeText} value={text} required/>
+                </div>
                 <button> {Carga?  <Spinner className="spinner" animation="border" role="status"></Spinner> : 'Enviar'}</button>
             </form>
         </div>
